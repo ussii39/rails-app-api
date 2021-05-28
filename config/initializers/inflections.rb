@@ -14,3 +14,9 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+
+# require Rails.root.join(“app/models/posts.rb”)
+
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+    inflect.acronym 'API'
+  end
