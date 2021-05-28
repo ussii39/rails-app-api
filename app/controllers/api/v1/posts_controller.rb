@@ -1,18 +1,23 @@
-module Api::V1
+require 'byebug'
+
+module API
+  module V1
       class PostsController < ApplicationController
         before_action :set_post, only: [:show, :update, :destroy]
-
-        private
+        
         def set_post
           @post = Post.find(params[:id])
         end
-  
+      
         def post_params
           params.require(:post).permit(:title)
         end
-
         
         def index
+          # logger.info("[info] users#index")
+          # logger.warn("[warn] users#index")
+          # logger.error("[error] users#index")
+          # logger.fatal("[fatal] users#index")
           posts = Post.order(created_at: :desc)
           render json: { status: 'SUCCESS', message: 'Loaded posts', data: posts }
         end
@@ -44,4 +49,5 @@ module Api::V1
         end
 
       end
-  end
+    end
+end
